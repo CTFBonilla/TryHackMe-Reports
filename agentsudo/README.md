@@ -1,9 +1,9 @@
 ====Agent Sudo Flutter July 24 2021====
 
 'IP 10.10.219.45</br>
-	export IP=10.10.219.45'</br>
+	> export IP=10.10.219.45'</br>
 'MYIP 10.10.213.35</br>
-	export MYIP=10.10.213.35'
+	> export MYIP=10.10.213.35'
 
 # Recon #
 
