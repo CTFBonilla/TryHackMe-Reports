@@ -25,15 +25,15 @@
 	Visiting Site
 ---------------------
 
-'''
-Dear agents,
+	'''
+	Dear agents,
 
-Use your own codename as user-agent to access the site.
+	Use your own codename as user-agent to access the site.
 
-From,
-Agent R 
-'''
-//Codename? Guessing the "Agent [letter]" is what they mean
+	From,
+	Agent R 
+	'''
+Codename? Guessing the "Agent [letter]" is what they mean
 
 - Intercepting with Burp
 	> Sniper 
