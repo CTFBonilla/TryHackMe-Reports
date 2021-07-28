@@ -144,7 +144,7 @@ ftp > exit
 
 ### SSH ###
 
-- ssh james@$IP
+- ssh james@$IP</br>
 	pass: hackerrules!
 
 - ls
