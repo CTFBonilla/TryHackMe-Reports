@@ -13,15 +13,13 @@
 
 - nmap -sV -sC -T5 -oN nmap_initial $IP
 
-'''
-21/tcp open  ftp     vsftpd 3.0.3
-
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-
-80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
-	http-server-header: Apache/2.4.29 (Ubuntu)
-	http-title: Annoucement
-'''
+		'''
+		21/tcp open  ftp     vsftpd 3.0.3
+		22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+		80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+			http-server-header: Apache/2.4.29 (Ubuntu)
+			http-title: Annoucement
+		'''
 
 ---------------------
 	Visiting Site
