@@ -48,14 +48,14 @@ Agent R
 	> Intercept
 		>> set User-Agent: C
 
-		>> '''
-		>> Attention chris,
-		>>
-		>> Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!
-		>>
-		>> From,
-		>> Agent R
-		>> '''
+		 '''
+		 Attention chris,
+		
+		 Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!
+		
+		 From,
+		 Agent R
+		 '''
 
 
 ---Possible Users---
