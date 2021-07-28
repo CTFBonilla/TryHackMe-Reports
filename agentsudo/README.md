@@ -110,7 +110,7 @@ Agent C
 
 - 7z e 8702.zip
 	> pass: alien
-	> To_agentR.txt
+- To_agentR.txt
 
 '''
 Agent C,
