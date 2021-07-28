@@ -74,11 +74,13 @@ Agent R
 	Pass: crystal
 
 ftp > ls
+
 	'''
 	-rw-r--r--    1 0        0             217 Oct 29  2019 To_agentJ.txt
 	-rw-r--r--    1 0        0           33143 Oct 29  2019 cute-alien.jpg
 	-rw-r--r--    1 0        0           34842 Oct 29  2019 cutie.png
 	'''
+	
 ftp > mget To_agentJ cute-alien.jpg cutie.png
 ftp > exit
 
