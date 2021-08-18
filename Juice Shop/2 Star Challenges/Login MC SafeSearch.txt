@@ -1,0 +1,10 @@
+Looking up "MC SafeSearch" led to a Youtube video by CollegeHumor. It was a music video in which the musician raps about password security.
+
+In the first verse he says 
+	"I say, 'Why not use the first name of your favorite pet?'
+	Mine's my dog, Mr. Noodles. It don't matter if you know
+	'Cause I was tricky and replaced some vowels with zeroes"
+
+This suggests his password is Mr. N00dles.
+
+Trying to login to mc.safesearch@juice-sh.op with password "Mr. N00dles" succeeds.

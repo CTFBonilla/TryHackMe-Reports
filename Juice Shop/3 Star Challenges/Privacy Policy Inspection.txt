@@ -1,0 +1,21 @@
+When reading through the Privacy Policy, mouse hovered over the lines and discovered a piece of text which became highlighted when hovering over. 
+
+Inspecting this text in dev tools revealed it was marked "class='hot'."
+
+Searching through the HTML with find function for this class returned:
+	http://10.10.42.187
+	We may also
+	instruct you
+	to refuse all
+	reasonably necessary
+	responsibility
+
+uhhh... tried using this as a URL
+	http://10.10.42.187/We/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility
+
+'''
+OWASP Juice Shop (Express ^4.17.1)
+404 Error: ENOENT: no such file or directory, stat '/juice-shop/frontend/dist/frontend/assets/private/thank-you.jpg'
+'''
+
+In doing this challenge, also completed 1 Star Challenge "Error Handling"

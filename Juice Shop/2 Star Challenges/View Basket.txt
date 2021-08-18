@@ -1,0 +1,11 @@
+Logged in as Admin as done in 2 Star Challenge "Admin Section".
+
+	Logged in as Admin using SQL injection previously found in the 2 Star Challenge "Login Admin".
+
+		Entered "' or 1=1--" as email and provided any password to login as admin@juice-sh.op
+
+Started Burp Intercept and clicked on "Your Basket".
+
+The GET request read "GET /rest/basket/1 HTTP/1.1".
+
+Changing the request to "GET /rest/basket/2 HTTP/1.1" returned another user's basket and fuilfilled the challenge.

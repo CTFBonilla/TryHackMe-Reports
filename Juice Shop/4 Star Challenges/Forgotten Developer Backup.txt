@@ -1,0 +1,7 @@
+During initial recon when visiting the About page and clicking the "legal.md" Terms of Use link, noticed the link was pointing to "/ftp/legal.md."
+
+Headed to /ftp and attempted to download .bak files.
+Attempting to do so returned
+	"403 Error: Only .md and .pdf files are allowed!"
+
+Inserted a NULL byte after ".bak" in the backup files followed my ".md" and successfully downloaded the backup files, completing this challenge.

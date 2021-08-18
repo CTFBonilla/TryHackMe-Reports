@@ -1,0 +1,9 @@
+Logged in as Admin as done in 2 Star Challenge "Admin Section".
+
+	Logged in as Admin using SQL injection previously found in the 2 Star Challenge "Login Admin".
+
+		Entered "' or 1=1--" as email and provided any password to login as admin@juice-sh.op
+
+Headed to the Last Login IP page Logged out and intercepted logout GET request with Burp.
+
+Added header "True-Client-IP" with value "<iframe src="javascript:alert(`xss`)">" and forwarded request, resulting in an alert of "xss" and completing the challenge

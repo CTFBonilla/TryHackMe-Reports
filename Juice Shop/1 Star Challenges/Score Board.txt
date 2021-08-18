@@ -1,0 +1,3 @@
+THM gives this one away, but one could also use Debugger to find it by searching for occurences of "score", "board", "scoreboard", or "score-board".
+
+One can also find every path by searching for "path" in the debugger.

@@ -1,0 +1,6 @@
+Navigated to "Customer Feedback"
+	/#/contact
+
+Filled out the feedback form and intercepted with Burp.
+
+Changed "rating" value to 0 in request body.

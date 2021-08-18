@@ -1,0 +1,7 @@
+Created a test account while walking through the application.
+
+When entering the "Repeat Password" field after entering a value into the "Password" field the app returned error "Passwords do not match." However, when altering the "Password" field value, the error did not return. 
+
+Clicking "Register" returned a successful registration despite the mismatched passwords.
+
+Logging in using the "Password" field value successful.

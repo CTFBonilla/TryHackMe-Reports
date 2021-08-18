@@ -1,0 +1,103 @@
+# Nmap 7.60 scan initiated Wed Aug 18 10:49:22 2021 as: nmap -sV -sC -vv -oN nmap_initial $IP
+Nmap scan report for ip-$IP.eu-west-1.compute.internal ($IP)
+Host is up, received arp-response (0.00098s latency).
+Scanned at 2021-08-18 10:49:23 BST for 14s
+Not shown: 999 closed ports
+Reason: 999 resets
+PORT   STATE SERVICE REASON         VERSION
+80/tcp open  http    syn-ack ttl 63
+| fingerprint-strings: 
+|   FourOhFourRequest, GetRequest: 
+|     HTTP/1.1 200 OK
+|     Access-Control-Allow-Origin: *
+|     X-Content-Type-Options: nosniff
+|     X-Frame-Options: SAMEORIGIN
+|     Feature-Policy: payment 'self'
+|     Accept-Ranges: bytes
+|     Cache-Control: public, max-age=0
+|     Last-Modified: Wed, 18 Aug 2021 08:52:20 GMT
+|     ETag: W/"786-17b58761d34"
+|     Content-Type: text/html; charset=UTF-8
+|     Content-Length: 1926
+|     Vary: Accept-Encoding
+|     Date: Wed, 18 Aug 2021 09:49:32 GMT
+|     Connection: close
+|     <!--
+|     Copyright (c) 2014-2020 Bjoern Kimminich.
+|     SPDX-License-Identifier: MIT
+|     <!doctype html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8">
+|     <title>OWASP Juice Shop</title>
+|     <meta name="description" content="Probably the most modern and sophisticated insecure web application">
+|     <meta name="viewport" content="width=device-width, initial-scale=1">
+|     <link id="favicon" rel="icon" type="image/x-icon" href="assets/public/favicon_ctf.ico">
+|     <link rel="stylesheet" typ
+|   HTTPOptions: 
+|     HTTP/1.1 204 No Content
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+|     Vary: Access-Control-Request-Headers
+|     Content-Length: 0
+|     Date: Wed, 18 Aug 2021 09:49:32 GMT
+|     Connection: close
+|   RTSPRequest, X11Probe: 
+|     HTTP/1.1 400 Bad Request
+|_    Connection: close
+|_http-cors: HEAD GET POST PUT DELETE PATCH
+|_http-favicon: Unknown favicon MD5: 50D0BF5D28E28C2661A4E48860D0F6E0
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+| http-robots.txt: 1 disallowed entry 
+|_/ftp
+|_http-title: OWASP Juice Shop
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.60%I=7%D=8/18%Time=611CD7AB%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,925,"HTTP/1\.1\x20200\x20OK\r\nAccess-Control-Allow-Origin:\x20\
+SF:*\r\nX-Content-Type-Options:\x20nosniff\r\nX-Frame-Options:\x20SAMEORIG
+SF:IN\r\nFeature-Policy:\x20payment\x20'self'\r\nAccept-Ranges:\x20bytes\r
+SF:\nCache-Control:\x20public,\x20max-age=0\r\nLast-Modified:\x20Wed,\x201
+SF:8\x20Aug\x202021\x2008:52:20\x20GMT\r\nETag:\x20W/\"786-17b58761d34\"\r
+SF:\nContent-Type:\x20text/html;\x20charset=UTF-8\r\nContent-Length:\x2019
+SF:26\r\nVary:\x20Accept-Encoding\r\nDate:\x20Wed,\x2018\x20Aug\x202021\x2
+SF:009:49:32\x20GMT\r\nConnection:\x20close\r\n\r\n<!--\n\x20\x20~\x20Copy
+SF:right\x20\(c\)\x202014-2020\x20Bjoern\x20Kimminich\.\n\x20\x20~\x20SPDX
+SF:-License-Identifier:\x20MIT\n\x20\x20-->\n\n<!doctype\x20html>\n<html\x
+SF:20lang=\"en\">\n<head>\n\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20<t
+SF:itle>OWASP\x20Juice\x20Shop</title>\n\x20\x20<meta\x20name=\"descriptio
+SF:n\"\x20content=\"Probably\x20the\x20most\x20modern\x20and\x20sophistica
+SF:ted\x20insecure\x20web\x20application\">\n\x20\x20<meta\x20name=\"viewp
+SF:ort\"\x20content=\"width=device-width,\x20initial-scale=1\">\n\x20\x20<
+SF:link\x20id=\"favicon\"\x20rel=\"icon\"\x20type=\"image/x-icon\"\x20href
+SF:=\"assets/public/favicon_ctf\.ico\">\n\x20\x20<link\x20rel=\"stylesheet
+SF:\"\x20typ")%r(HTTPOptions,EA,"HTTP/1\.1\x20204\x20No\x20Content\r\nAcce
+SF:ss-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Methods:\x20GET,
+SF:HEAD,PUT,PATCH,POST,DELETE\r\nVary:\x20Access-Control-Request-Headers\r
+SF:\nContent-Length:\x200\r\nDate:\x20Wed,\x2018\x20Aug\x202021\x2009:49:3
+SF:2\x20GMT\r\nConnection:\x20close\r\n\r\n")%r(RTSPRequest,2F,"HTTP/1\.1\
+SF:x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n")%r(X11Probe,2
+SF:F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n")
+SF:%r(FourOhFourRequest,925,"HTTP/1\.1\x20200\x20OK\r\nAccess-Control-Allo
+SF:w-Origin:\x20\*\r\nX-Content-Type-Options:\x20nosniff\r\nX-Frame-Option
+SF:s:\x20SAMEORIGIN\r\nFeature-Policy:\x20payment\x20'self'\r\nAccept-Rang
+SF:es:\x20bytes\r\nCache-Control:\x20public,\x20max-age=0\r\nLast-Modified
+SF::\x20Wed,\x2018\x20Aug\x202021\x2008:52:20\x20GMT\r\nETag:\x20W/\"786-1
+SF:7b58761d34\"\r\nContent-Type:\x20text/html;\x20charset=UTF-8\r\nContent
+SF:-Length:\x201926\r\nVary:\x20Accept-Encoding\r\nDate:\x20Wed,\x2018\x20
+SF:Aug\x202021\x2009:49:32\x20GMT\r\nConnection:\x20close\r\n\r\n<!--\n\x2
+SF:0\x20~\x20Copyright\x20\(c\)\x202014-2020\x20Bjoern\x20Kimminich\.\n\x2
+SF:0\x20~\x20SPDX-License-Identifier:\x20MIT\n\x20\x20-->\n\n<!doctype\x20
+SF:html>\n<html\x20lang=\"en\">\n<head>\n\x20\x20<meta\x20charset=\"utf-8\
+SF:">\n\x20\x20<title>OWASP\x20Juice\x20Shop</title>\n\x20\x20<meta\x20nam
+SF:e=\"description\"\x20content=\"Probably\x20the\x20most\x20modern\x20and
+SF:\x20sophisticated\x20insecure\x20web\x20application\">\n\x20\x20<meta\x
+SF:20name=\"viewport\"\x20content=\"width=device-width,\x20initial-scale=1
+SF:\">\n\x20\x20<link\x20id=\"favicon\"\x20rel=\"icon\"\x20type=\"image/x-
+SF:icon\"\x20href=\"assets/public/favicon_ctf\.ico\">\n\x20\x20<link\x20re
+SF:l=\"stylesheet\"\x20typ");
+MAC Address: 02:7A:25:9D:D0:D1 (Unknown)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug 18 10:49:37 2021 -- 1 IP address (1 host up) scanned in 14.31 seconds

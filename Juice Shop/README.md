@@ -1,0 +1,1 @@
+This repository is a record of my experience attemtping all the OWASP Juice Shop challenges under the scoreboard, organizied by difficulty.

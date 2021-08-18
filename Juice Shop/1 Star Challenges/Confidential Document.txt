@@ -1,0 +1,3 @@
+During initial recon when visiting the About page and clicking the "legal.md" Terms of Use link, noticed the link was pointing to "/ftp/legal.md."
+
+Visiting /ftp and clicked each document until the challenge was complete.

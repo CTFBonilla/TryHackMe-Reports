@@ -1,0 +1,7 @@
+Used Burp to intercept a test login POST request designed to fail and sent it to Burp Repeater.
+
+In Burp Repeater edited the "email" field value in the request to "'". Response was a verbose SQLite Error. 
+
+Intercepted the request again and changed the "email" value to "bender@juice-sh.op'--".
+
+Succesfully logged in as bender@juice-sh.op
