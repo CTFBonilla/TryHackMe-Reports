@@ -1,10 +1,5 @@
 ===Kenobi 	Flutter Jul 21 2021===
 
-'IP 10.10.31.121</br>
-	export IP=10.10.31.121'</br>
-'MYIP 10.10.208.2</br>
-	export MYIP=10.10.208.2'
-
 # Recon #
 
 ----------------
@@ -173,10 +168,7 @@
 		-rw------- 1 kenobi kenobi  642 Sep  4  2019 .viminfo
 		'''
 
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-		/home/kenobi/user.txt: d0b0f3f53b6caa532a83915e19224899
-</details>
+/home/kenobi/user.txt contain flag
 
 # PrivEsc #
 
@@ -296,8 +288,5 @@ run payload
 		-rw-r--r--  1 root root   33 Sep  4  2019 root.txt
 		-rw-------  1 root root 5383 Sep  4  2019 .viminfo
 		'''
-		
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-		/root/root.txt: 177b3cd8562289f37382721c28381f02
-</details>
+
+/root/root.txt contains flag
