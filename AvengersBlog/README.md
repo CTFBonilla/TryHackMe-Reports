@@ -20,20 +20,11 @@ Found hint line 189
 
 /js/script.js found cookies flag
 
-	document.cookie = "flag1=cookie_secrets; expires=Thu, 18 Dec 2050 12:00:00 UTC";
-	flag1: cookie_secrets
-
 ### Dev Tools ###
 
 Checking cookies under Storage tab found cookies flag as well
-	
-	flag1: cookie_secrets
-
 
 "GET http://$IP" response headers under Network tab contain flag
-	
-	flag2: headers_are_important
-
 
 ### Scanning ###
 
@@ -75,9 +66,6 @@ ftp> get flag3.txt
 
 flag3.txt contains flag
 
-	8fc651a739befc58d450dc48e1f1fd2e
-
-
 ### /portal ###
 
 Trying SQLi with "' or 1=1--:' or 1=1--"
@@ -112,5 +100,3 @@ ls /home/ubuntu
 cat flag5.txt fails
 
 less flag5.txt returns flag
-	
-	d335e2d13f36558ba1e67969a1718af7
