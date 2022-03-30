@@ -147,10 +147,7 @@ Codename? Guessing the "Agent [letter]" is what they mean
 		Alien_autospy.jpg  user_flag.txt
 		'''
 
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-		/home/james/user_flag.txt: b03d975e8c92a7c04146cfa7a5a313c7
-</details>
+user flag Found
 
 
 # PrivEsc #
@@ -167,10 +164,7 @@ Codename? Guessing the "Agent [letter]" is what they mean
 
 - root gained
 
-*Flag Found*<details>
-	<summary>Spoiler</summary>
-	/root/root.txt: b53a02f55b57d4439e3341834d70c062
-</details>
+root flag found
 
 
 # Passwords #
