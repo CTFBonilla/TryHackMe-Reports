@@ -199,12 +199,3 @@ id
 	uid=0(root) gid=0(root) groups=0(root)
 
 cat /var/www/flag.txt returned flag
-	
-*Flag Found*<details>
-<summary>Spoiler</summary>
-	
-> /var/www/flag.txt:
-
-	THM{NzRlYTUwNTIzODMwMWZhMzBiY2JlZWU2}
-
-</details>
